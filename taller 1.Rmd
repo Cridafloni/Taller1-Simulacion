@@ -108,3 +108,30 @@ RESPUESTA:
 sum( dbinom(0:25,900,3/200))
 plot(0:900, dbinom(0:900,900,3/200))
 ```
+
+b. La cantidad de billetes falsos esté entre 20 y 30.
+
+RESPUESTA: 
+
+```{r punto2b, echo=FALSE}
+
+# Binomial 
+# x# de billetes falsos
+# p: 3/200 q: 197/200 n:900
+# p(<=20x<=30)
+sum( dbinom(0:30,900,3/200))-sum(dbinom(0:20,900,3/200))
+plot(0:30, dbinom(0:30,900,3/200))
+```
+
+c. Más de 10 sean falsos.
+
+RESPUESTA: 
+
+```{r punto2c, echo=FALSE}
+# Binomial 
+# x# de billetes falsos
+# p: 3/200 q: 197/200 n:900
+# p(x>=10)
+sum( dbinom(0:900,900,3/200))-sum(dbinom(0:10,900,3/200))
+plot(0:30, dbinom(0:30,900,3/200))
+```
