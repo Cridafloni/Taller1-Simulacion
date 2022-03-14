@@ -26,7 +26,7 @@ par(mfrow=c(1,2))
 hist(hembras, breaks=seq(166.8,210.8,by=8.8), main="Histograma tamaño langostinos hembras")
 hist(machos, breaks=seq(109.2,203.3,by=18.82), main="Histograma tamaño langostinos machos")
 
-cat("Analisis: \n Machos: Presenta coeficiente de asimetria positiva lo que nos indica que la mayor concentración de datos está en los primeros cuartiles, desde 146.84 - 165.66 ")
+cat("Analisis: \n Machos: Presenta coeficiente de asimetria positiva lo que nos indica que la mayor concentración de datos está en los primeros intervalos, donde el que mayor concentracion tiene es el que comprende 146.84 - 165.66 ")
 
 
 ```
@@ -38,6 +38,7 @@ RESPUESTA:
 
 cat("La media de los machos es: ", mean(machos),", y su desviación estandar es: ", sd(machos))
 cat("La media de las hembras es: ", mean(hembras),", y su desviación estandar es: ", sd(hembras))
+cat("De esto podemos concluir que en promedio los langostinos hembra son mas grandes que los machos, además de que la desviación estandar de las hembras es menor lo que nos indica que varia menos el tamaño en hembras que en machos.")
 ``` 
 
 c. Halle un intervalo para la media del Largo total por sexo con un nivel de confianza del 97%. Provea la interpretación respectiva.
@@ -68,6 +69,8 @@ lim_supM<- mediaM+(z*errorstM)
 cat("El valor inferior del intervalo de confianza de la media de las hembras es:",lim_infH,".\nEl valor superior del intervalo de confianza de la media de las hembras es:",lim_supH)
 
 cat("El valor inferior del intervalo de confianza de la media de los machos es:",lim_infM,".\nEl valor superior del intervalo de confianza de la media de los machos es:",lim_supM)
+
+cat("Con base en el intervalo para la media que se calcularon podemos inferir que con un 97% de confianza la media real de la poblacion es para machos entre [145.677 - 163.255] y para hembras [185.32 - 192.812]")
 ```
 d. Construya un Boxplot por sexo e interpretelo.
 
@@ -92,7 +95,7 @@ qqnorm(machos, pch = 19, col = "gray50")
 qqline(machos)
 ```
 
-## Punto 1
+## Punto 2
 2.	En un restaurante de la ciudad se sabe que la probabilidad de que se reciba un billete de $50.000 falso es de 0.015. Si se sabe que en una semana se reciben pagos con 900 billetes de $50.000, halle la probabilidad de que: 
 
 a. A lo sumo 25 billetes sean falsos.
@@ -109,9 +112,11 @@ sum( dbinom(0:25,900,3/200))
 plot(0:900, dbinom(0:900,900,3/200))
 ```
 
+
 b. La cantidad de billetes falsos esté entre 20 y 30.
 
 RESPUESTA: 
+
 
 ```{r punto2b, echo=FALSE}
 
@@ -135,3 +140,6 @@ RESPUESTA:
 sum( dbinom(0:900,900,3/200))-sum(dbinom(0:10,900,3/200))
 plot(0:30, dbinom(0:30,900,3/200))
 ```
+
+
+
