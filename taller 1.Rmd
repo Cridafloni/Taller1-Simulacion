@@ -1,13 +1,13 @@
 ---
 title: "Taller 1 Simulación"
 output: html_document
-date: '2022-03-10'
+date: '2022-03-15'
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
+##### Presentado por : Cristian Flórez Nieto & Juan Miguel Giraldo Zuluaga
 ## Punto 1
 Al comparar los caracteres morfométricos de una especie de langostinos de gran importancia económica en Argentina se observaron diferencias de tamaño entre macho y hembra. En la siguiente tabla se presentan los datos (Largo total mm) de las morfometrías de machos y hembras obtenidos en diferentes recolectas (Ruiz & Mendia, 2008). 
 
@@ -23,10 +23,10 @@ par(mfrow=c(1,2))
 
 
 
-hist(hembras, breaks=seq(166.8,210.8,by=8.8), main="Histograma tamaño langostinos hembras")
-hist(machos, breaks=seq(109.2,203.3,by=18.82), main="Histograma tamaño langostinos machos")
+hist(hembras, breaks=seq(166.8,210.8,by=8.8), main="Histograma tamaño langostinos hembras", xlab = "Tamaño (mm)", ylab = "Cantidad")
+hist(machos, breaks=seq(109.2,203.3,by=18.82), main="Histograma tamaño langostinos machos", xlab = "Tamaño (mm)", ylab = "Cantidad")
 
-cat("Analisis: \n Machos: Presenta coeficiente de asimetria positiva lo que nos indica que la mayor concentración de datos está en los primeros intervalos, donde el que mayor concentracion tiene es el que comprende 146.84 - 165.66 ")
+cat("INTERPRETACIOÓN: \n Machos: Presenta coeficiente de asimetria positiva lo que nos indica que la mayor concentración de datos está en los primeros intervalos, donde el que mayor concentracion tiene es el que comprende 146.84 - 165.66 \n Hembras: Representa una curtosis leptocurtica debido a que sus datos están muy concentrados en los intervalos 2 y 3.")
 
 
 ```
@@ -38,7 +38,7 @@ RESPUESTA:
 
 cat("La media de los machos es: ", mean(machos),", y su desviación estandar es: ", sd(machos))
 cat("La media de las hembras es: ", mean(hembras),", y su desviación estandar es: ", sd(hembras))
-cat("De esto podemos concluir que en promedio los langostinos hembra son mas grandes que los machos, además de que la desviación estandar de las hembras es menor lo que nos indica que varia menos el tamaño en hembras que en machos.")
+cat("INTERPRETACIÓN: De esto podemos concluir que en promedio los langostinos hembra son mas grandes que los machos, además de que la desviación estandar de las hembras es menor lo que nos indica que varia menos el tamaño en hembras que en machos.")
 ``` 
 
 c. Halle un intervalo para la media del Largo total por sexo con un nivel de confianza del 97%. Provea la interpretación respectiva.
@@ -70,7 +70,7 @@ cat("El valor inferior del intervalo de confianza de la media de las hembras es:
 
 cat("El valor inferior del intervalo de confianza de la media de los machos es:",lim_infM,".\nEl valor superior del intervalo de confianza de la media de los machos es:",lim_supM)
 
-cat("Con base en el intervalo para la media que se calcularon podemos inferir que con un 97% de confianza la media real de la poblacion es para machos entre [145.677 - 163.255] y para hembras [185.32 - 192.812]")
+cat("INTERPRETACIÓN: Con base en el intervalo para la media que se calcularon podemos inferir que con un 97% de confianza la media real de la poblacion es para machos entre [145.677 - 163.255] y para hembras [185.32 - 192.812]")
 ```
 d. Construya un Boxplot por sexo e interpretelo.
 
@@ -78,9 +78,9 @@ RESPUESTA:
 
 ```{r punto1d, echo=FALSE}
 boxplot(hembras, horizontal = TRUE, main = "Boxplot Hembras", xlab = "Tamaño(mm)", col = "#FFB6C1")
-cat("INTERPRETACION: ")
+cat("INTERPRETACION: La aglomeración de los datos se repesenta gracias al tamaño de la caja y la media está más cercana al cuartil 1")
 boxplot(machos, horizontal = TRUE, main = "Boxplot Machos",  xlab = "Tamaño(mm)", col = "#B0E2FF")
-cat("INTERPRETACION: ")
+cat("INTERPRETACION: No hay tanta concentración de datos, es decir, están más dispersos y que la media es más cercana al cuartil 1")
 ```
 
 e. Comprobar la normalidad de los datos.
@@ -108,8 +108,8 @@ RESPUESTA:
 # x# de billetes falsos
 # p: 3/200 q: 197/200 n:900
 # p(x<=25)
-sum( dbinom(0:25,900,3/200))
-plot(0:900, dbinom(0:900,900,3/200))
+cat("La probabildiad de que a los sumo 25 billetes sean falsos es: ",sum( dbinom(0:25,900,3/200)))
+plot(0:900, dbinom(0:900,900,3/200), main = "Probabilidad de que los billetes 50000 sean falsos (n=900, p=3/200)", ylab = "Probabilidad", pch = 19, col="orange")
 ```
 
 
@@ -124,8 +124,8 @@ RESPUESTA:
 # x# de billetes falsos
 # p: 3/200 q: 197/200 n:900
 # p(<=20x<=30)
-sum( dbinom(0:30,900,3/200))-sum(dbinom(0:20,900,3/200))
-plot(0:30, dbinom(0:30,900,3/200))
+cat("La probabilidad de que la cantidad de billetes falsos está entre 20 y 30 es: ",sum( dbinom(0:30,900,3/200))-sum(dbinom(0:20,900,3/200)))
+plot(0:30, dbinom(0:30,900,3/200), main = "Probabilidad de que los billetes 50000 sean falsos (n=900, p=3/200)", ylab = "Probabilidad", pch = 16, col="red")
 ```
 
 c. Más de 10 sean falsos.
@@ -137,8 +137,8 @@ RESPUESTA:
 # x# de billetes falsos
 # p: 3/200 q: 197/200 n:900
 # p(x>=10)
-sum( dbinom(0:900,900,3/200))-sum(dbinom(0:10,900,3/200))
-plot(0:30, dbinom(0:30,900,3/200))
+cat("La probabilidad de que mas de 10 billetes sean falsos es: ",sum( dbinom(0:900,900,3/200))-sum(dbinom(0:10,900,3/200)))
+plot(0:30, dbinom(0:30,900,3/200), main = "Probabilidad de que los billetes 50000 sean falsos (n=900, p=3/200)", ylab = "Probabilidad", pch = 20, col="green")
 ```
 
 ## Punto 3
@@ -152,10 +152,11 @@ RESPUESTA:
 ```{r punto3a, echo=FALSE}
 # Normal 
 # x= # de personas que superaran los 92 años
-# media = 76 Varianza = 25
+# media = 76 Varianza = 25 Desviación = 5
 # p(x>92)
-pnorm(92,76,5,lower.tail = FALSE)
-plot(51:101,dnorm(51:101,76,5), main = "Vida media para la ciudad   = 76", xlab = "esperanza de vida de las personas", ylab = "probabilidad" )
+resultado3a<-pnorm(92,76,5,lower.tail = FALSE)
+cat("La probabilidad de que personas que viviran mas de 92 años es: ",resultado3a)
+plot(51:101,dnorm(51:101,76,5), main = expression(paste( "Vida media para la ciudad: ", mu ,"= 76, ", sigma,"=5")), xlab = "Esperanza de vida de las personas", ylab = "Probabilidad" )
 ```
 
 
@@ -168,7 +169,19 @@ RESPUESTA:
 # x= # de personas que viviran menos de 55 o mas de 75 años
 # media = 76 Varianza = 25
 # p(55<X)+ p(X>75)
-pnorm(75,76,5,lower.tail = FALSE) + pnorm(55,76,5)
-plot(20:131,dnorm(20:131,76,5), main = "Vida media para la ciudad   = 76", xlab = "esperanza de vida de las personas", ylab = "probabilidad" )
+
+x<-dnorm(40:100, 76, 5)
+y<-40:100
+
+l <- min(which(y >= 55))
+h <- max(which(y < 75))
+
+value  <- 55
+resultado3b<-pnorm(75,76,5,lower.tail = FALSE) + pnorm(55,76,5)
+cat("La probabilidad de que personas que viviran menos de 55 o mas de 75 años es: ",resultado3b)
+plot(40:100,dnorm(40:100,76,5),  main = expression(paste( "Vida media para la ciudad: ", mu ,"= 76, ", sigma,"=5")), xlab = "Esperanza de vida de las personas", ylab = "Probabilidad", pch = 19, col="orange")
+polygon(y,x, col = "slateblue")
+polygon(c(y[c(l, l:h, h)]), c(0, x[l:h], 0), col = "white")
+#polygon(c(y[y>=value], max(y), value), c(x[y>=value], 0, 0), col="white")
 ```
 
