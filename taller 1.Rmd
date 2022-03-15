@@ -96,7 +96,7 @@ qqline(machos)
 ```
 
 ## Punto 2
-2.	En un restaurante de la ciudad se sabe que la probabilidad de que se reciba un billete de $50.000 falso es de 0.015. Si se sabe que en una semana se reciben pagos con 900 billetes de $50.000, halle la probabilidad de que: 
+En un restaurante de la ciudad se sabe que la probabilidad de que se reciba un billete de $50.000 falso es de 0.015. Si se sabe que en una semana se reciben pagos con 900 billetes de $50.000, halle la probabilidad de que: 
 
 a. A lo sumo 25 billetes sean falsos.
 
@@ -141,5 +141,31 @@ sum( dbinom(0:900,900,3/200))-sum(dbinom(0:10,900,3/200))
 plot(0:30, dbinom(0:30,900,3/200))
 ```
 
+## Punto 3
 
+Según un estudio del Departamento Nacional de Estadística -DANE-, la vida media para el quinquenio de 2010 a 2015 de los habitantes de Colombia es 76 años, con una varianza de 25. Se pretende hacer un estudio con el objetivo de extrapolar los resultados anteriores a una pequeña ciudad de 100.000 habitantes, considerando que el tiempo de sobrevida es normal.
 
+a. ¿Cuántos de los habitantes de la pequeña ciudad superarán previsiblemente los 92 años?
+
+RESPUESTA: 
+
+```{r punto3a, echo=FALSE}
+# Binomial 
+# x# de billetes falsos
+# p: 3/200 q: 197/200 n:900
+# p(x>=10)
+#sum( dbinom(0:900,900,3/200))-sum(dbinom(0:10,900,3/200))
+#plot(0:30, dbinom(0:30,900,3/200))
+```
+
+b. ¿Cuántos vivirán menos de 55 años o más de 75 años?
+
+RESPUESTA:
+
+```{r punto3b, echo=FALSE}
+# Binomial 
+# x# de billetes falsos
+# p: 3/200 q: 197/200 n:900
+# p(x>=10)
+
+```
