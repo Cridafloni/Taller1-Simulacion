@@ -150,22 +150,25 @@ a. ¿Cuántos de los habitantes de la pequeña ciudad superarán previsiblemente
 RESPUESTA: 
 
 ```{r punto3a, echo=FALSE}
-# Binomial 
-# x# de billetes falsos
-# p: 3/200 q: 197/200 n:900
-# p(x>=10)
-#sum( dbinom(0:900,900,3/200))-sum(dbinom(0:10,900,3/200))
-#plot(0:30, dbinom(0:30,900,3/200))
+# Normal 
+# x= # de personas que superaran los 92 años
+# media = 76 Varianza = 25
+# p(x>92)
+pnorm(92,76,5,lower.tail = FALSE)
+plot(51:101,dnorm(51:101,76,5), main = "Vida media para la ciudad   = 76", xlab = "esperanza de vida de las personas", ylab = "probabilidad" )
 ```
+
 
 b. ¿Cuántos vivirán menos de 55 años o más de 75 años?
 
 RESPUESTA:
 
 ```{r punto3b, echo=FALSE}
-# Binomial 
-# x# de billetes falsos
-# p: 3/200 q: 197/200 n:900
-# p(x>=10)
-
+# Normal 
+# x= # de personas que viviran menos de 55 o mas de 75 años
+# media = 76 Varianza = 25
+# p(55<X)+ p(X>75)
+pnorm(75,76,5,lower.tail = FALSE) + pnorm(55,76,5)
+plot(20:131,dnorm(20:131,76,5), main = "Vida media para la ciudad   = 76", xlab = "esperanza de vida de las personas", ylab = "probabilidad" )
 ```
+
